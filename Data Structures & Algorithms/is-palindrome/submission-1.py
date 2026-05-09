@@ -1,0 +1,23 @@
+class Solution:
+    def isPalindrome(self, s: str) -> bool:
+        l = 0
+        r = len(s) - 1
+        while l < r:
+            while l<r and not self.checker(s[l]):
+                l += 1
+            while l<r and not self.checker(s[r]):
+                r -= 1
+            
+            if s[l].lower() != s[r].lower():
+                return False
+            
+            l += 1
+            r -= 1
+        
+        return True
+       
+       
+       
+    def checker(self, val):
+        return (ord('a') <= ord(val) <= ord('z') or ord('A') <= ord(val) <= ord('Z') or ord('0') <= ord(val) <= ord('9'))
+        
